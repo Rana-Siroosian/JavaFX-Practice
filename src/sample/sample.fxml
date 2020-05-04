@@ -5,6 +5,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
 <GridPane fx:controller="sample.Controller"
 	xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10"
 	vgap="10">
@@ -13,24 +15,51 @@
 	</padding>
 
 
-	<Text text="Welcome" GridPane.columnIndex="0"
+	<Text text="Welcome" GridPane.columnIndex="1"
 		GridPane.rowIndex="0" GridPane.columnSpan="2" />
 
 	<Label text="User Name:" GridPane.columnIndex="0"
 		GridPane.rowIndex="1" />
 
-	<TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+	<TextField fx:id="textField" GridPane.columnIndex="1"
+		GridPane.rowIndex="1" />
 
 	<Label text="Password:" GridPane.columnIndex="0"
 		GridPane.rowIndex="2" />
 
 	<PasswordField fx:id="passwordField"
 		GridPane.columnIndex="1" GridPane.rowIndex="2" />
-	<HBox spacing="10" alignment="bottom_right"
-		GridPane.columnIndex="1" GridPane.rowIndex="4">
-		<Button text="Sign In" onAction="#handleSubmitButtonAction" />
-	</HBox>
 
+	<HBox spacing="10" alignment="bottom_right"
+		GridPane.columnIndex="1" GridPane.rowIndex="6">
+		<Button text="Sign In" prefWidth="70"
+			onAction="#handleSubmitButtonAction">
+			<graphic>
+				<ImageView>
+					<Image url="@toolbarButtonGraphics.general/stop24.gif"></Image>
+				</ImageView>
+			</graphic>
+		</Button>
+		<Button text="Clear" prefWidth="70"
+			onAction="#handleClearButtonAction" />
+		<ToggleButton text="Help" prefWidth="70"></ToggleButton>
+	</HBox>
+	<VBox GridPane.rowIndex="5" GridPane.columnIndex="0">
+		<CheckBox text="Subscribe to our channel"
+			indeterminate="true" />
+		<CheckBox text="Receive email from us" indeterminate="true" />
+
+	</VBox>
+	<Text text="Country:" GridPane.columnIndex="0"
+		GridPane.rowIndex="3" GridPane.columnSpan="2" />
+	<fx:define>
+		<ToggleGroup fx:id="country" />
+	</fx:define>
+	<VBox GridPane.rowIndex="4" GridPane.columnIndex="1">
+		<RadioButton toggleGroup="$country" text="United States"
+			selected="true" />
+		<RadioButton toggleGroup="$country" text="Canada" />
+	</VBox>
 	<Text fx:id="actiontarget" GridPane.columnIndex="1"
 		GridPane.rowIndex="6" />
 
