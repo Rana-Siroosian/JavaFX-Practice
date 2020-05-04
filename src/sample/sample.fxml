@@ -6,6 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
+<?import javafx.collections.*?>
+<?import java.lang.String?>
 
 <GridPane fx:controller="sample.Controller"
 	xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10"
@@ -15,8 +17,8 @@
 	</padding>
 
 
-	<Text text="Welcome" GridPane.columnIndex="1"
-		GridPane.rowIndex="0" GridPane.columnSpan="2" />
+	<!-- <Text text="Welcome" GridPane.columnIndex="1" GridPane.rowIndex="0" 
+		GridPane.columnSpan="2" /> -->
 
 	<Label text="User Name:" GridPane.columnIndex="0"
 		GridPane.rowIndex="1" />
@@ -31,8 +33,8 @@
 		GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
 	<HBox spacing="10" alignment="bottom_right"
-		GridPane.columnIndex="1" GridPane.rowIndex="6">
-		<Button text="Sign In" prefWidth="70"
+		GridPane.columnIndex="1" GridPane.rowIndex="7">
+		<Button text="Sign Up" prefWidth="70"
 			onAction="#handleSubmitButtonAction">
 			<graphic>
 				<ImageView>
@@ -44,21 +46,52 @@
 			onAction="#handleClearButtonAction" />
 		<ToggleButton text="Help" prefWidth="70"></ToggleButton>
 	</HBox>
-	<VBox GridPane.rowIndex="5" GridPane.columnIndex="0">
-		<CheckBox text="Subscribe to our channel"
-			indeterminate="true" />
-		<CheckBox text="Receive email from us" indeterminate="true" />
 
-	</VBox>
 	<Text text="Country:" GridPane.columnIndex="0"
 		GridPane.rowIndex="3" GridPane.columnSpan="2" />
 	<fx:define>
 		<ToggleGroup fx:id="country" />
 	</fx:define>
-	<VBox GridPane.rowIndex="4" GridPane.columnIndex="1">
+	<VBox GridPane.rowIndex="3" GridPane.columnIndex="1">
 		<RadioButton toggleGroup="$country" text="United States"
 			selected="true" />
 		<RadioButton toggleGroup="$country" text="Canada" />
+	</VBox>
+	<Text text="What school did you go to?" GridPane.columnIndex="0"
+		GridPane.rowIndex="5" GridPane.columnSpan="2" />
+	<ComboBox GridPane.rowIndex="5" GridPane.columnIndex="1">
+		<items>
+			<FXCollections fx:factory="observableArrayList">
+				<String fx:value="Grand Circus Detroit" />
+				<String fx:value="Grand Circus Grand Rapids" />
+				<String fx:value="Wayne State University" />
+				<String fx:value="University of Michigan" />
+
+			</FXCollections>
+		</items>
+		<value>
+			<String fx:value="University of Michigan"></String>
+		</value>
+	</ComboBox>
+	<ChoiceBox GridPane.rowIndex="5" GridPane.columnIndex="2">
+		<items>
+			<FXCollections fx:factory="observableArrayList">
+				<String fx:value="2000-2005" />
+				<String fx:value="2005-2010" />
+
+				<String fx:value="2010-2015" />
+				<String fx:value="2015-2020" />
+			</FXCollections>
+		</items>
+		<value>
+			<String fx:value="2000-2005"></String>
+		</value>
+	</ChoiceBox>
+	<VBox GridPane.rowIndex="6" GridPane.columnIndex="0">
+		<CheckBox text="Subscribe to our channel"
+			indeterminate="true" />
+		<CheckBox text="Receive email from us" indeterminate="true" />
+
 	</VBox>
 	<Text fx:id="actiontarget" GridPane.columnIndex="1"
 		GridPane.rowIndex="6" />
