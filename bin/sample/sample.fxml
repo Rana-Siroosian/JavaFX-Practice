@@ -32,27 +32,18 @@
 	<PasswordField fx:id="passwordField"
 		GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-	<HBox spacing="10" alignment="bottom_right"
-		GridPane.columnIndex="1" GridPane.rowIndex="7">
-		<Button text="Sign Up" prefWidth="70"
-			onAction="#handleSubmitButtonAction">
-			<graphic>
-				<ImageView>
-					<Image url="@toolbarButtonGraphics.general/stop24.gif"></Image>
-				</ImageView>
-			</graphic>
-		</Button>
-		<Button text="Clear" prefWidth="70"
-			onAction="#handleClearButtonAction" />
-		<ToggleButton text="Help" prefWidth="70"></ToggleButton>
-	</HBox>
+
+	<Text text="DOB:" GridPane.columnIndex="0" GridPane.rowIndex="3"
+		GridPane.columnSpan="2" />
+	<DatePicker GridPane.rowIndex="3" GridPane.columnIndex="1"></DatePicker>
 
 	<Text text="Country:" GridPane.columnIndex="0"
-		GridPane.rowIndex="3" GridPane.columnSpan="2" />
+		GridPane.rowIndex="4" GridPane.columnSpan="2" />
+
 	<fx:define>
 		<ToggleGroup fx:id="country" />
 	</fx:define>
-	<VBox GridPane.rowIndex="3" GridPane.columnIndex="1">
+	<VBox GridPane.rowIndex="4" GridPane.columnIndex="1">
 		<RadioButton toggleGroup="$country" text="United States"
 			selected="true" />
 		<RadioButton toggleGroup="$country" text="Canada" />
@@ -87,12 +78,31 @@
 			<String fx:value="2000-2005"></String>
 		</value>
 	</ChoiceBox>
-	<VBox GridPane.rowIndex="6" GridPane.columnIndex="0">
+	<Text text="How would you rate the school?"
+		GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2" />
+	<Slider GridPane.rowIndex="7" GridPane.columnIndex="1"
+		GridPane.columnSpan="4" min="0" max="100" showTickLabels="true"
+		showTickMarks="true" minorTickCount="4" snapToTicks="true" />
+	<VBox GridPane.rowIndex="8" GridPane.columnIndex="0">
 		<CheckBox text="Subscribe to our channel"
 			indeterminate="true" />
 		<CheckBox text="Receive email from us" indeterminate="true" />
 
 	</VBox>
+	<HBox spacing="10" alignment="bottom_right"
+		GridPane.columnIndex="3" GridPane.rowIndex="9">
+		<Button text="Sign Up" prefWidth="70"
+			onAction="#handleSubmitButtonAction">
+			<graphic>
+				<ImageView>
+					<Image url="@toolbarButtonGraphics.general/stop24.gif"></Image>
+				</ImageView>
+			</graphic>
+		</Button>
+		<Button text="Clear" prefWidth="70"
+			onAction="#handleClearButtonAction" />
+		<ToggleButton text="Help" prefWidth="70"></ToggleButton>
+	</HBox>
 	<Text fx:id="actiontarget" GridPane.columnIndex="1"
 		GridPane.rowIndex="6" />
 

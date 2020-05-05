@@ -25,7 +25,7 @@ public class HelloFXApp extends Application {
 //		greeting.setFont(Font.font("Times New Roman",FontWeight.BOLD,70));
 //		root.getChildren().add(greeting);
     	primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 700,350));
+        primaryStage.setScene(new Scene(root, 700,400));
         primaryStage.show();
     }
 	
