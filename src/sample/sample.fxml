@@ -8,10 +8,12 @@
 <?import javafx.scene.image.*?>
 <?import javafx.collections.*?>
 <?import java.lang.String?>
+<?import java.time.LocalDate?>
+
 
 <GridPane fx:controller="sample.Controller"
 	xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10"
-	vgap="10">
+	vgap="10" >
 	<padding>
 		<Insets top="25" right="25" bottom="10" left="25" />
 	</padding>
@@ -24,7 +26,7 @@
 		GridPane.rowIndex="1" />
 
 	<TextField fx:id="textField" GridPane.columnIndex="1"
-		GridPane.rowIndex="1" />
+		GridPane.rowIndex="1" onKeyReleased="#handleEmptyFields"/>
 
 	<Label text="Password:" GridPane.columnIndex="0"
 		GridPane.rowIndex="2" />
@@ -35,7 +37,9 @@
 
 	<Text text="DOB:" GridPane.columnIndex="0" GridPane.rowIndex="3"
 		GridPane.columnSpan="2" />
-	<DatePicker GridPane.rowIndex="3" GridPane.columnIndex="1"></DatePicker>
+	<DatePicker fx:id="datePicker" GridPane.rowIndex="3"
+		GridPane.columnIndex="1" >
+	</DatePicker>
 
 	<Text text="Country:" GridPane.columnIndex="0"
 		GridPane.rowIndex="4" GridPane.columnSpan="2" />
@@ -64,7 +68,7 @@
 			<String fx:value="University of Michigan"></String>
 		</value>
 	</ComboBox>
-	<ChoiceBox GridPane.rowIndex="5" GridPane.columnIndex="2">
+	<ChoiceBox GridPane.rowIndex="5" GridPane.columnIndex="2" GridPane.columnSpan="2">
 		<items>
 			<FXCollections fx:factory="observableArrayList">
 				<String fx:value="2000-2005" />
@@ -91,19 +95,20 @@
 	</VBox>
 	<HBox spacing="10" alignment="bottom_right"
 		GridPane.columnIndex="3" GridPane.rowIndex="9">
-		<Button text="Sign Up" prefWidth="70"
-			onAction="#handleSubmitButtonAction">
+		<Button fx:id="signupB" text="Sign Up" prefWidth="70"
+			onAction="#onButtonClicked">
 			<graphic>
 				<ImageView>
 					<Image url="@toolbarButtonGraphics.general/stop24.gif"></Image>
 				</ImageView>
 			</graphic>
 		</Button>
-		<Button text="Clear" prefWidth="70"
-			onAction="#handleClearButtonAction" />
+		<Button fx:id="clearB" text="Clear" prefWidth="70"
+			onAction="#onButtonClicked" />
 		<ToggleButton text="Help" prefWidth="70"></ToggleButton>
 	</HBox>
-	<Text fx:id="actiontarget" GridPane.columnIndex="1"
-		GridPane.rowIndex="6" />
+	<Button GridPane.rowIndex="10" GridPane.columnIndex="3" text="checkme"></Button>
+	<Text fx:id="actiontarget" GridPane.columnIndex="3"
+		GridPane.rowIndex="8" />
 
 </GridPane>

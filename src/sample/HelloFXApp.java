@@ -31,6 +31,7 @@ public class HelloFXApp extends Application {
 	
 	public static void main(String[] args) {
 		// Launch the JavaFX application
+		
 		Application.launch(args);
 	}
 
